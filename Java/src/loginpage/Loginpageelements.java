@@ -124,11 +124,6 @@ public class Loginpageelements {
 	 *  This represent for compose button 
 	 *  @return
 	 */
-	
-//	public WebElement composemail(){
-//		WebElement element=driver.findElement(by.id(""));
-//		wait.until(ExpectedConditions.elementToBeClickable(element));
-//		return element;
-//	}
+
 	
 }
