@@ -5,8 +5,7 @@
     <classes>
       <class name="loginpage.LoginTestCase">
         <methods>
-          <include name="Verify_User_can_logout"/>
-          <include name="login"/>
+          <include name="Verify_User_Can_Login"/>
         </methods>
       </class> <!-- loginpage.LoginTestCase -->
     </classes>

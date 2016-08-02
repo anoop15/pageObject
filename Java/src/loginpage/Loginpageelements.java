@@ -7,6 +7,7 @@ import org.apache.xalan.templates.ElemElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -18,17 +19,27 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * @author Umesh
  *
  */
+
+
 public class Loginpageelements {
 	public static String url = "https://www.gmail.com";
-	public static WebDriver driver = new FirefoxDriver();
-	WebDriverWait wait = (new WebDriverWait(driver, 30));
+	public static WebDriver driver;
+	public static WebDriverWait wait; 
 	
 	/**
 	 * this method should be call in before class it does not belong to webelement class 
 	 */
 
-	public  void browserSetup(){
-	 //   driver = new FirefoxDriver();
+	public void browserSetup(String browser){
+	if(browser.equalsIgnoreCase("firefox")){
+		driver = new FirefoxDriver();
+		 wait = (new WebDriverWait(driver, 30));
+	}else if (browser.equalsIgnoreCase("chrome")){
+		System.setProperty("webdriver.chrome.driver","/Users/anandmahajan/Desktop/chromedriver");
+		driver=new ChromeDriver();
+		 wait = (new WebDriverWait(driver, 30));
+	}
+	
 	    driver.navigate().to(url);
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 	}
@@ -118,6 +129,8 @@ public class Loginpageelements {
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 		return element;
 	}
+
+	
 	
 	
 	/**
